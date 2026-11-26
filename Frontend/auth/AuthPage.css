@@ -1,0 +1,226 @@
+/* Auth pages — Login and Register */
+.auth-bg {
+  min-height: 100vh;
+  background: url('/src/assets/gk-store.jpg') center center / 100% 100% no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+}
+
+/* Dark overlay para mas makita ang login card */
+.auth-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 40, 80, 0.55);
+}
+
+.auth-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-card-wide {
+  max-width: 600px;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.auth-brand-gk {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f3f7c;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.auth-brand-rs {
+  display: block;
+  font-size: 12px;
+  color: #6b83a3;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.auth-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f3f7c;
+  margin: 0 0 4px;
+}
+
+.auth-sub {
+  font-size: 14px;
+  color: #6b83a3;
+  margin: 0 0 24px;
+}
+
+.auth-card label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #10447f;
+  margin: 14px 0 4px;
+}
+
+.auth-card input,
+.auth-card select {
+  width: 100%;
+  height: 42px;
+  border: 2px solid #d0dce8;
+  border-radius: 10px;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 15px;
+  color: #10447f;
+  background: #f7fafd;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.auth-card input:focus,
+.auth-card select:focus {
+  outline: none;
+  border-color: #27a8e1;
+  background: #fff;
+}
+
+.auth-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.auth-btn {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  background: #27a8e1;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-btn:hover:not(:disabled) { background: #1170be; }
+.auth-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.auth-error {
+  color: #b42318;
+  font-size: 14px;
+  margin: 10px 0 0;
+  font-weight: 600;
+}
+
+.auth-success {
+  background: #f0fdf4;
+  border: 2px solid #18794e;
+  border-radius: 10px;
+  padding: 16px;
+  color: #18794e;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.auth-success p { margin: 0 0 12px; }
+
+.auth-switch {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #6b83a3;
+}
+
+.auth-link {
+  background: none;
+  border: none;
+  color: #1170be;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+/* ── Password eye toggle ──────────────────────────────────── */
+.pw-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.pw-wrap input {
+  width: 100% !important;
+  padding-right: 40px !important;
+}
+.pw-eye {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b83a3;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.pw-eye:hover { color: #1170be; }
+.pw-eye svg { width: 18px; height: 18px; }
+
+/* OTP input boxes */
+.otp-boxes {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0 10px;
+}
+
+.otp-input {
+  width: 52px !important;
+  height: 60px !important;
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  border: 2px solid #d0dce8 !important;
+  border-radius: 12px !important;
+  padding: 0 !important;
+  color: #0f3f7c !important;
+  background: #f7fafd !important;
+  transition: border-color 0.2s !important;
+}
+
+.otp-input:focus {
+  border-color: #27a8e1 !important;
+  background: #fff !important;
+  outline: none !important;
+}
+
+.otp-timer {
+  text-align: center;
+  font-size: 14px;
+  color: #6b83a3;
+  margin: 6px 0 0;
+}
+
+.otp-expired {
+  color: #b42318 !important;
+  font-weight: 600;
+}
