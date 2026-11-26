@@ -1,0 +1,3 @@
+/* Global reset + page font */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif; color: #10447f; background: #fff; }

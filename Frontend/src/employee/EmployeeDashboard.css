@@ -1,0 +1,400 @@
+/* ============================================================
+   GK Water Refilling Station — Employee Dashboard
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.emp-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f0f4f8;
+}
+
+/* ── Top Header ─────────────────────────────────────────── */
+.emp-header {
+  background: linear-gradient(90deg, #0f3f7c 0%, #1170be 100%);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  flex-shrink: 0;
+}
+
+.emp-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.emp-header-brand svg { width: 36px; height: 50px; }
+.emp-header-brand .gk { font-size: 28px; font-weight: 900; letter-spacing: -1px; }
+.emp-header-brand .rs { font-size: 12px; font-weight: 400; opacity: .85; text-transform: uppercase; }
+
+.emp-header-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.emp-header-user svg { width: 32px; height: 32px; opacity: .9; }
+.emp-header-user small { display: block; font-size: 12px; font-weight: 400; opacity: .8; }
+
+/* ── Body (sidebar + content) ────────────────────────────── */
+.emp-body {
+  display: flex;
+  flex: 1;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+.emp-sidebar {
+  width: 200px;
+  background: linear-gradient(180deg, #0d3570 0%, #1558a8 100%);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding: 20px 0 0;
+}
+
+.emp-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.75);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  cursor: pointer;
+  text-align: left;
+  transition: background .15s, color .15s;
+  width: 100%;
+}
+
+.emp-nav-btn svg { width: 26px; height: 26px; flex-shrink: 0; }
+.emp-nav-btn:hover { background: rgba(255,255,255,.1); color: #fff; }
+.emp-nav-btn.active {
+  background: #27a8e1;
+  color: #fff;
+  border-radius: 0 24px 24px 0;
+  margin-right: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.2);
+}
+
+.emp-logout-btn {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.65);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  cursor: pointer;
+  border-top: 1px solid rgba(255,255,255,.12);
+  width: 100%;
+  text-align: left;
+}
+.emp-logout-btn:hover { color: #fff; }
+.emp-logout-btn svg { width: 22px; height: 22px; }
+
+/* ── Main Content ─────────────────────────────────────────── */
+.emp-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* ── Notice ───────────────────────────────────────────────── */
+.emp-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.emp-notice.success { background: #d1fae5; color: #18794e; border: 1.5px solid #6ee7b7; }
+.emp-notice.error   { background: #fee2e2; color: #b42318; border: 1.5px solid #fca5a5; }
+.emp-notice button  { background: none; border: none; font-size: 18px; cursor: pointer; color: inherit; }
+
+/* ── Dashboard Page ───────────────────────────────────────── */
+.emp-welcome-box {
+  background: #27a8e1;
+  border-radius: 16px;
+  padding: 18px 24px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.emp-welcome-box h2 { font-size: 26px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+.emp-welcome-box p  { font-size: 14px; opacity: .9; margin-top: 4px; }
+
+.emp-time-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.emp-time-card {
+  background: #fff;
+  border: 2px solid #d0dce8;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+
+.emp-time-card svg { width: 44px; height: 44px; color: #1170be; flex-shrink: 0; }
+.emp-time-card .label  { font-size: 14px; color: #6b83a3; font-weight: 600; margin-bottom: 4px; }
+.emp-time-card .time   { font-size: 24px; font-weight: 900; color: #0f3f7c; }
+.emp-time-card .date   { font-size: 13px; color: #6b83a3; margin-top: 2px; }
+
+/* ── Attendance Page ──────────────────────────────────────── */
+.emp-att-title {
+  background: #27a8e1;
+  border-radius: 16px;
+  padding: 14px 24px;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.emp-att-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.emp-att-stat {
+  background: #fff;
+  border: 2px solid #d0dce8;
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.emp-att-stat svg  { width: 40px; height: 40px; color: #1170be; flex-shrink: 0; }
+.emp-att-stat .num { font-size: 36px; font-weight: 900; color: #0f3f7c; line-height: 1; }
+.emp-att-stat .lbl { font-size: 13px; color: #6b83a3; font-weight: 600; margin-top: 2px; }
+
+/* ── Profile Page ─────────────────────────────────────────── */
+.emp-profile-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 16px;
+  align-items: start;
+  max-width: 860px;
+}
+
+.emp-profile-left { display: flex; flex-direction: column; gap: 16px; }
+
+.emp-profile-photo-card {
+  background: #fff;
+  border: 2px solid #d0dce8;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+
+.emp-photo-circle {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: #dbeafe;
+  margin: 0 auto 14px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.emp-photo-circle img { width: 100%; height: 100%; object-fit: cover; }
+.emp-photo-circle svg { width: 40px; height: 40px; color: #1170be; }
+
+.emp-change-photo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0f3f7c;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.emp-change-photo-btn:hover { background: #1170be; }
+
+.emp-account-card {
+  background: #fff;
+  border: 2px solid #d0dce8;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+
+.emp-account-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  background: #0f3f7c;
+  margin: -20px -20px 16px;
+  padding: 12px 20px;
+  border-radius: 14px 14px 0 0;
+}
+
+.emp-account-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #e8edf3; font-size: 14px; }
+.emp-account-row:last-child { border-bottom: none; }
+.emp-account-row .key   { color: #1170be; font-weight: 700; }
+.emp-account-row .value { color: #0f3f7c; font-weight: 600; }
+
+.emp-profile-right { display: flex; flex-direction: column; gap: 16px; }
+
+.emp-info-card {
+  background: #fff;
+  border: 2px solid #d0dce8;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+
+.emp-info-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  background: #1170be;
+  margin: -20px -20px 16px;
+  padding: 12px 20px;
+  border-radius: 14px 14px 0 0;
+}
+
+.emp-info-row { padding: 9px 0; border-bottom: 1px solid #e8edf3; font-size: 14px; }
+.emp-info-row:last-child { border-bottom: none; }
+.emp-info-row .key   { color: #6b83a3; font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+.emp-info-row .value { color: #0f3f7c; font-weight: 600; }
+
+.emp-action-btns { display: flex; flex-direction: column; gap: 10px; }
+
+.emp-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .15s;
+  color: #fff;
+}
+.emp-action-btn.edit { background: #27a8e1; }
+.emp-action-btn.edit:hover { background: #1a92c5; }
+.emp-action-btn.pw   { background: #0f3f7c; }
+.emp-action-btn.pw:hover { background: #1170be; }
+.emp-action-btn svg { width: 18px; height: 18px; }
+
+/* ── Modal ────────────────────────────────────────────────── */
+.emp-modal-bg {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100; padding: 20px;
+}
+.emp-modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  width: 100%; max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.2);
+}
+.emp-modal h3 { font-size: 18px; font-weight: 800; color: #0f3f7c; margin-bottom: 16px; }
+.emp-modal label { display: block; font-size: 13px; font-weight: 600; color: #6b83a3; margin: 12px 0 4px; }
+.emp-modal input {
+  width: 100%; height: 42px;
+  border: 2px solid #d0dce8; border-radius: 10px;
+  padding: 0 14px; font: inherit; font-size: 14px; color: #0f3f7c;
+}
+.emp-modal input:focus { outline: none; border-color: #27a8e1; }
+.emp-modal-err { color: #b42318; font-size: 13px; font-weight: 600; margin-top: 10px; }
+.emp-modal-row { display: flex; gap: 10px; margin-top: 18px; }
+.emp-modal-btn {
+  flex: 1; padding: 10px; border: none; border-radius: 10px;
+  font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
+}
+.emp-modal-btn.primary { background: #27a8e1; color: #fff; }
+.emp-modal-btn.primary:hover { background: #1170be; }
+.emp-modal-btn.ghost { background: #f0f4f8; color: #0f3f7c; }
+
+/* ── Shared Table ─────────────────────────────────────────── */
+.emp-table-card {
+  background: #fff;
+  border: 2px solid #d0dce8;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+
+.emp-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.emp-table thead th {
+  background: #0f3f7c;
+  color: #fff;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+.emp-table tbody td { padding: 12px 16px; border-bottom: 1px solid #e8edf3; color: #0f3f7c; }
+.emp-table tbody tr:last-child td { border-bottom: none; }
+.emp-table tbody tr:hover { background: #f7fafd; }
+
+.emp-status-pill {
+  display: inline-block; padding: 3px 10px;
+  border-radius: 20px; font-size: 12px; font-weight: 700;
+}
+.emp-status-pill.on-time  { background: #d1fae5; color: #18794e; }
+.emp-status-pill.late     { background: #fef3c7; color: #92400e; }
+
+.emp-empty { text-align: center; padding: 24px; color: #6b83a3; font-size: 14px; }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .emp-time-cards, .emp-att-stats { grid-template-columns: 1fr; }
+  .emp-profile-grid { grid-template-columns: 1fr; }
+  .emp-sidebar { width: 60px; }
+  .emp-nav-btn span, .emp-logout-btn span { display: none; }
+}
