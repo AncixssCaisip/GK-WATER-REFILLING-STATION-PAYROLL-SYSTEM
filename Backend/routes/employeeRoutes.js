@@ -10,7 +10,7 @@ employeeRoutes.delete('/:id', employeeController.deleteEmployees);
 
 export default employeeRoutes;
 
-// Employee portal routes 
+// Employee portal routes (used by EmployeeDashboard.jsx)
 import * as attendanceController from '../controllers/attendanceController.js';
 import { sendError } from '../utils/appError.js';
 import * as employeeModel from '../models/employeeModel.js';
@@ -47,7 +47,7 @@ employeeRoutes.get('/profile', async (req, res) => {
     } catch (e) { sendError(res, e) }
 })
 
-// Helper — get employee by username
+//Helper — get employee by username
 async function getEmployeeByUsername(username) {
     const [users] = await pool.query('SELECT * FROM users WHERE username = ?', [username.toLowerCase()])
     if (!users.length) return null
