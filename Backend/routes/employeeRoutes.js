@@ -47,7 +47,7 @@ employeeRoutes.get('/profile', async (req, res) => {
     } catch (e) { sendError(res, e) }
 })
 
-// Helper — get employee by username
+//Helper — get employee by username
 async function getEmployeeByUsername(username) {
     const [users] = await pool.query('SELECT * FROM users WHERE username = ?', [username.toLowerCase()])
     if (!users.length) return null

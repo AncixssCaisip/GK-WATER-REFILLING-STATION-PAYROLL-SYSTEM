@@ -202,7 +202,7 @@ function EmployeeDashboard({ user, onLogout }) {
       {/* ── Body ── */}
       <div className="emp-body">
 
-        {/* ── Sidebar ── */}
+        {/* ─ Sidebar ── */}
         <aside className="emp-sidebar">
           <button className={`emp-nav-btn${page === 'dashboard' ? ' active' : ''}`} onClick={() => nav('dashboard')}>
             <IconHome /><span>Dashboard</span>

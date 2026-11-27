@@ -14,8 +14,8 @@ const EyeOff = () => (
   </svg>
 )
 
-// Reusable password input with eye toggle
-// Props: id, value, onChange, placeholder, autoComplete, required, style, className
+//  Reusable password input with eye toggle
+//  Props: id, value, onChange, placeholder, autoComplete, required, style, className
 function PasswordInput({ id, value, onChange, placeholder, autoComplete, required, style, className }) {
   const [show, setShow] = useState(false)
 
