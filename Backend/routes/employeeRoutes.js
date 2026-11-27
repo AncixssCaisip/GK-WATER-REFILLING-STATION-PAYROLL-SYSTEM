@@ -10,7 +10,6 @@ employeeRoutes.delete('/:id', employeeController.deleteEmployees);
 
 export default employeeRoutes;
 
-
 // Employee portal routes (used by EmployeeDashboard.jsx)
 import * as attendanceController from '../controllers/attendanceController.js';
 import { sendError } from '../utils/appError.js';

@@ -426,7 +426,7 @@ function EmployeeDashboard({ user, onLogout }) {
           </div>
         </div>
       )}
-      {/* ── Change Password Modal ── */}
+
       {/* ── Change Password Modal ── */}
       {modal === 'password' && (
         <div className="emp-modal-bg">
