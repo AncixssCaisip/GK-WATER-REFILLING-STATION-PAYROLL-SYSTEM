@@ -153,7 +153,7 @@ function EmployeeDashboard({ user, onLogout }) {
     } catch (err) { setEditErr(err.message) }
   }
 
-  // ── Change password ─────────────────────────────────────────────────────────
+  // ── Change password ───────────────────────────────────────────────────────
   async function changePassword(e) {
     e.preventDefault()
     setPwErr('')
