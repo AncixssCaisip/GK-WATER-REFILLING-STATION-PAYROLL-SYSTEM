@@ -3,7 +3,7 @@ import './EmployeeDashboard.css'
 import BrandLogo from '../components/BrandLogo.jsx'
 import PasswordInput from '../components/PasswordInput.jsx'
 
-// ── API helper ────────────────────────────────────────────────────────────────
+// ─ API helper ────────────────────────────────────────────────────────────────
 async function empApi(path, method = 'GET', body, empCode) {
   const sep = path.includes('?') ? '&' : '?'
   const url = `/api/employees${path}${empCode ? `${sep}username=${empCode}` : ''}`
@@ -153,7 +153,7 @@ function EmployeeDashboard({ user, onLogout }) {
     } catch (err) { setEditErr(err.message) }
   }
 
-  //Change password ───────────────────────────────────────────────────────
+  // ── Change password ─────────────────────────────────────────────────────────
   async function changePassword(e) {
     e.preventDefault()
     setPwErr('')
